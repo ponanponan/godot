@@ -1,0 +1,93 @@
+[gd_scene load_steps=7 format=3 uid="uid://kbq4pnjtqwrw"]
+
+[ext_resource type="Texture2D" uid="uid://dsan5flpx62rd" path="res://sprites/slot.png" id="1_kxxai"]
+[ext_resource type="Script" path="res://scripts/slot_machine.gd" id="1_ucaiy"]
+[ext_resource type="Texture2D" uid="uid://oa2nq36osbx4" path="res://sprites/results.png" id="2_jxpeg"]
+[ext_resource type="Texture2D" uid="uid://cfy3lc02gi5rq" path="res://sprites/slot_machine.png" id="3_dutbw"]
+[ext_resource type="PackedScene" uid="uid://difmd256csna4" path="res://scene/slot.tscn" id="4_50nfm"]
+[ext_resource type="Texture2D" uid="uid://d0f0v1ug0y0ys" path="res://sprites/handle.png" id="5_nhbjt"]
+
+[node name="Game" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ucaiy")
+
+[node name="Background" type="TextureRect" parent="."]
+self_modulate = Color(0.305882, 0.419608, 1, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_kxxai")
+
+[node name="Price" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 13.0
+offset_bottom = 154.0
+grow_horizontal = 2
+texture = ExtResource("2_jxpeg")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="SlotMachine" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 16.0
+offset_top = -233.0
+offset_right = -17.0
+offset_bottom = 401.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_dutbw")
+expand_mode = 1
+
+[node name="Handle" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 549.0
+offset_top = 276.0
+offset_right = 719.0
+offset_bottom = 610.0
+pivot_offset = Vector2(0, 334)
+texture_normal = ExtResource("5_nhbjt")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Slot1" parent="." instance=ExtResource("4_50nfm")]
+layout_mode = 1
+offset_left = -152.0
+offset_top = -14.0
+offset_right = -175.0
+offset_bottom = 50.276
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="Slot2" parent="." instance=ExtResource("4_50nfm")]
+layout_mode = 1
+offset_left = -59.0
+offset_top = -13.0
+offset_right = -82.0
+offset_bottom = 51.276
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="Slot3" parent="." instance=ExtResource("4_50nfm")]
+layout_mode = 1
+offset_left = 35.0
+offset_top = -13.0
+offset_right = 12.0
+offset_bottom = 51.276
+grow_horizontal = 1
+grow_vertical = 1
+
+[connection signal="pressed" from="Handle" to="." method="_on_handle_pressed"]

@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://cxutshr3f6f1b"]
+
+[ext_resource type="PackedScene" uid="uid://difmd256csna4" path="res://scene/slot.tscn" id="1_onbfr"]
+[ext_resource type="Script" path="res://scripts/slot_4.gd" id="1_r0hic"]
+[ext_resource type="Texture2D" uid="uid://ntwjj4bssjt" path="res://bg/image-Photoroom.png" id="2_l6t32"]
+
+[node name="Node" type="Node"]
+script = ExtResource("1_r0hic")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(380, 441)
+scale = Vector2(1.34892, 1.02421)
+texture = ExtResource("2_l6t32")
+
+[node name="Slot" parent="." instance=ExtResource("1_onbfr")]
+offset_left = -57.0
+offset_top = -174.0
+offset_right = -80.0
+offset_bottom = -109.724
+
+[node name="Slot2" parent="." instance=ExtResource("1_onbfr")]
+offset_left = 39.0
+offset_top = -174.0
+offset_right = 16.0
+offset_bottom = -109.724
+
+[node name="Slot3" parent="." instance=ExtResource("1_onbfr")]
+offset_left = 135.0
+offset_top = -174.0
+offset_right = 112.0
+offset_bottom = -109.724
